@@ -30,6 +30,9 @@
 * 
 * _OBJECTS
 * Layout - styles for all layout and or grid system
+* 
+* PICTURE
+* picture
 *
 */
 
@@ -46,3 +49,4 @@
 @import "_generic/_generic.reset.scss";
 @import "_elements/_elements.links.scss";
 @import "_objects/_objects.layout.scss";
+@import "../../views/_partials/picture/picture.scss";

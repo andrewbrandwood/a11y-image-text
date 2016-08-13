@@ -5,9 +5,10 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     sgc = require('gulp-sass-generate-contents'),
     runSeq = require('run-sequence'),
-	config = require('./_config/project.json'),
-	creds = require('./_config/creds.json'),
-	srcStyles = config.src + '/' + config.dirs.styles;
+    config = require('./_config/project.json'),
+	  creds = require('./_config/creds.json'),
+    srcStyles = config.src + '/' + config.dirs.styles,
+    imagemin = require('gulp-imagemin');
 
 /* ============================================================ *\
     SCRIPTS / JS
@@ -24,15 +25,15 @@ gulp.task('scripts:lint', function () {
 
 gulp.task('sass-generate-contents', function () {
 	return gulp.src([
-		srcStyles + '/_settings/*.scss', 
-		srcStyles + '/_tools/_tools.mixins.scss', 
-		srcStyles + '/_tools/_tools.functions.scss', 
-		srcStyles + '/_tools/*.scss', 
-		srcStyles + '/_scope/*.scss', 
-		srcStyles + '/_generic/*.scss', 
-		srcStyles + '/_elements/*.scss', 
-		srcStyles + '/_objects/*.scss', 
-		'views/_partials/**/*.scss', 
+		srcStyles + '/_settings/*.scss',
+		srcStyles + '/_tools/_tools.mixins.scss',
+		srcStyles + '/_tools/_tools.functions.scss',
+		srcStyles + '/_tools/*.scss',
+		srcStyles + '/_scope/*.scss',
+		srcStyles + '/_generic/*.scss',
+		srcStyles + '/_elements/*.scss',
+		srcStyles + '/_objects/*.scss',
+		'views/_partials/**/*.scss',
 		srcStyles + '/_trumps/*.scss'])
 	.pipe(sgc(config.src + '/' + config.dirs.styles + '/main.scss', creds))
 	.pipe(gulp.dest(config.src + '/' + config.dirs.styles));
@@ -50,6 +51,13 @@ gulp.task('sass:dev', function () {
 			.pipe(gulp.dest(config.dest + '/' + config.dirs.styles));
 });
 
+
+gulp.task('images', function () {
+  return gulp.src(config.src + '/' + config.dirs.images + '/**/*')
+      .pipe(imagemin())
+      .pipe(gulp.dest(config.dest + '/' + config.dirs.images));
+});
+
 /* ============================================================ *\
     MAIN TASKS
 \* ============================================================ */
@@ -60,7 +68,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', function (cb) {
-	runSeq(['sass-generate-contents'],['sass:dev', 'watch'], cb);
+	runSeq(['sass-generate-contents'],['sass:dev', 'images', 'watch'], cb);
 });
-
-
