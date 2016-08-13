@@ -30,9 +30,6 @@
 * 
 * _OBJECTS
 * Layout - styles for all layout and or grid system
-* 
-* NAVIGATION-PRIMARY
-* Navigation primary - styles for primary navigation
 *
 */
 
@@ -49,4 +46,3 @@
 @import "_generic/_generic.reset.scss";
 @import "_elements/_elements.links.scss";
 @import "_objects/_objects.layout.scss";
-@import "../../views/_partials/navigation-primary/navigation-primary.scss";

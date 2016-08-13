@@ -19,7 +19,6 @@ var WebsiteController = function (app) {
 
 
 		var model = {
-			layout: false,
 			helpers: templateHelpers,
 			content:	templateData
 		}
