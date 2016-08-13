@@ -1,0 +1,52 @@
+/* ============================================================ *\
+
+  #MAIN
+
+  Site:   Basic Node Site
+  Author: Andrew Brandwood
+
+/* ============================================================ *\
+
+
+/**
+* CONTENTS
+* 
+* _SETTINGS
+* Variables for colors
+* Global variables
+* 
+* _TOOLS
+* Common Sass mixins
+* Common Sass functions
+* Font declarations and settings
+* 
+* _GENERIC
+* Box-sizing
+* Normalize - sets all elements to a common state regardless of browser.
+* Reset - resets all margin and padding to 0
+* 
+* _ELEMENTS
+* links - styles for links
+* 
+* _OBJECTS
+* Layout - styles for all layout and or grid system
+* 
+* NAVIGATION-PRIMARY
+* Navigation primary - styles for primary navigation
+*
+*/
+
+
+
+
+@import "_settings/_settings.colors.scss";
+@import "_settings/_settings.global.scss";
+@import "_tools/_tools.mixins.scss";
+@import "_tools/_tools.functions.scss";
+@import "_tools/_tools.typography.scss";
+@import "_generic/_generic.box-sizing.scss";
+@import "_generic/_generic.normalize.scss";
+@import "_generic/_generic.reset.scss";
+@import "_elements/_elements.links.scss";
+@import "_objects/_objects.layout.scss";
+@import "../../views/_partials/navigation-primary/navigation-primary.scss";

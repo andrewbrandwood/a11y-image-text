@@ -1,0 +1,45 @@
+{
+  "name": "node-basic-site",
+  "version": "0.1.5",
+  "description": "A basic node site setup with gulp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewbrandwood/node-basic-site"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "event-stream": "^3.3.0",
+    "express": "^4.11.2",
+    "express-handlebars": "^3.0.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "~2.1.0",
+    "gulp-pixrem": "0.1.1",
+    "run-sequence": "^1.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "body-parser": "^1.11.0",
+    "chai": "^3.0.0",
+    "ejs": "^2.2.4",
+    "express-json": "^1.0.0",
+    "express-logger": "0.0.3",
+    "express-method-override": "0.0.3",
+    "express-session": "^1.10.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-postcss": "^5.1.9",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-generate-contents": "0.0.2",
+    "karma": "^0.12.37",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-notification-reporter": "0.0.1",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17"
+  }
+}

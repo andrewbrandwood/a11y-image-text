@@ -1,0 +1,12 @@
+{
+	"dest": "public/_client",
+	"src": "_source",
+	"dirs": {
+        "styles":     	"styles",
+        "scripts":    	"scripts",
+        "images":     	"images",
+        "components": 	"views",
+        "webfonts": 	"webfonts",
+        "reports": 		"reports"
+    }
+}

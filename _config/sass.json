@@ -1,0 +1,31 @@
+{
+    "output": "build/css/screen.css",
+    "dev": {
+        "sourcemap"   : false,
+        "trace"       : false,
+        "unixNewlines": true,
+        "check"       : false,
+        "style"       : "expanded",
+        "precision"   : 3,
+        "quiet"       : false,
+        "compass"     : false,
+        "debugInfo"   : false,
+        "lineNumbers" : true,
+        "noCache"     : false,
+        "bundleExec"  : false
+    },
+    "prod": {
+        "sourcemap"   : false,
+        "trace"       : false,
+        "unixNewlines": true,
+        "check"       : false,
+        "style"       : "compressed",
+        "precision"   : 3,
+        "quiet"       : false,
+        "compass"     : false,
+        "debugInfo"   : false,
+        "lineNumbers" : false,
+        "noCache"     : false,
+        "bundleExec"  : false
+    }
+}

@@ -1,0 +1,11 @@
+//links - styles for links
+a {
+	color: $c-links;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:visited {
+		color: $c-links-visited;
+	}
+}
