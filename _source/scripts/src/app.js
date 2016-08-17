@@ -8,7 +8,7 @@
 		var _self = this;
 
 		function init(){
-			
+			console.log('hi');
 		}
 
 		init();

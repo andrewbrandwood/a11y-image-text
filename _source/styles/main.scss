@@ -5,8 +5,7 @@
   Site:   Basic Node Site
   Author: Andrew Brandwood
 
-/* ============================================================ *\
-
+/* ============================================================ */
 
 /**
 * CONTENTS
@@ -39,14 +38,14 @@
 
 
 
-@import "_settings/_settings.colors.scss";
-@import "_settings/_settings.global.scss";
-@import "_tools/_tools.mixins.scss";
-@import "_tools/_tools.functions.scss";
-@import "_tools/_tools.typography.scss";
-@import "_generic/_generic.box-sizing.scss";
-@import "_generic/_generic.normalize.scss";
-@import "_generic/_generic.reset.scss";
-@import "_elements/_elements.links.scss";
-@import "_objects/_objects.layout.scss";
-@import "../../views/_partials/picture/picture.scss";
+@import "/Sites/a11y-image-text/_source/styles/_settings/_settings.colors.scss";
+@import "/Sites/a11y-image-text/_source/styles/_settings/_settings.global.scss";
+@import "/Sites/a11y-image-text/_source/styles/_tools/_tools.mixins.scss";
+@import "/Sites/a11y-image-text/_source/styles/_tools/_tools.functions.scss";
+@import "/Sites/a11y-image-text/_source/styles/_tools/_tools.typography.scss";
+@import "/Sites/a11y-image-text/_source/styles/_generic/_generic.box-sizing.scss";
+@import "/Sites/a11y-image-text/_source/styles/_generic/_generic.normalize.scss";
+@import "/Sites/a11y-image-text/_source/styles/_generic/_generic.reset.scss";
+@import "/Sites/a11y-image-text/_source/styles/_elements/_elements.links.scss";
+@import "/Sites/a11y-image-text/_source/styles/_objects/_objects.layout.scss";
+@import "/Sites/a11y-image-text/views/_partials/picture/picture.scss";
