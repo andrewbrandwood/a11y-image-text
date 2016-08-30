@@ -3,8 +3,29 @@
 .picture__frame {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
 .picture__image {
   width: 100%;
   display: block;
+}
+
+.picture__text {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  top: 40px;
+  left: 40px;
+}
+
+.picture__textarea {
+  background-color: transparent;
+  border: 2px solid rgba(255,255,255, .5);
+  color: #fff;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.picture__textarea-label {
+  display: none;
 }

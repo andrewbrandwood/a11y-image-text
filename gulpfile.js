@@ -88,7 +88,7 @@ gulp.task('images', function () {
 
 
 gulp.task('watch', function () {
-	gulp.watch([config.src + '/' + config.dirs.styles + '/**/*.scss', config.src + '/' + config.dirs.components + '/**/*.scss', config.src + '/' + config.dirs.components + '/**/*.js', config.src + '/' + config.dirs.scripts + '/**/*.js'], ['sass:dev', 'scripts', 'scripts:vendor']);
+	gulp.watch([config.src + '/' + config.dirs.styles + '/**/*.scss', config.dirs.components + '/**/*.scss', config.src + '/' + config.dirs.components + '/**/*.js', config.src + '/' + config.dirs.scripts + '/**/*.js'], ['sass:dev', 'scripts', 'scripts:vendor']);
 });
 
 gulp.task('default', function (cb) {

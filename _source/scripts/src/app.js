@@ -8,24 +8,23 @@
 		var _self = this;
 
 		function init(){
-			var img = document.getElementById('ImageTest');
-			var title = document.getElementById('Title');
-			var img2 = document.getElementById('ImageTest2');
-			var title2 = document.getElementById('Title2');
-			var img3 = document.getElementById('ImageTest3');
-			var title3 = document.getElementById('Title3');
-			title.style.color = getAverageColourAsRGB(img).css;
-			title2.style.color = getAverageColourAsRGB(img2).css;
-			title3.style.color = getAverageColourAsRGB(img3).css;
+			setTitles('Title', 'ImageTest');
+			setTitles('Title2', 'ImageTest2');
+			setTitles('Title3', 'ImageTest3');
 
-			var image1RGB =
 
-			getAcessibility({r:255,g:255,b:255},getAverageColourAsRGB(img3))
+			//getAcessibility({r:255,g:255,b:255},getAverageColourAsRGB(img3))
 
 		}
 
 		init();
 	};
+
+	function setTitles(TitleId, ImgId){
+		var img = document.getElementById(ImgId);
+		var title = document.getElementById(TitleId);
+		title.style.color = getAverageColourAsRGB(img).css;
+	}
 
 	$(window).on('load', function(){
 		var website = new Website();
