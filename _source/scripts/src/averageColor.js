@@ -1,4 +1,4 @@
-function getAverageColourAsRGB (img) {
+function getAverageColourAsRGB (img, textArea) {
   var canvas = document.createElement('canvas'),
     context = canvas.getContext && canvas.getContext('2d'),
     rgb = {r:102,g:102,b:102}, // Set a base colour as a fallback for non-compliant browsers
@@ -15,9 +15,9 @@ function getAverageColourAsRGB (img) {
     width = canvas.width = img.naturalWidth || img.offsetWidth || img.width;
 
   context.drawImage(img, 0, 0);
-
+  
   try {
-  data = context.getImageData(0, 0, width, height);
+  data = context.getImageData(textArea.x, textArea.y, textArea.w, textArea.h);
   } catch(e) {
   // catch errors - usually due to cross domain security issues
   alert(e);
