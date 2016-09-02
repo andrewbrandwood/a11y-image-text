@@ -31,3 +31,4 @@ _source/styles/main.scss
 **/*/_main.scss
 **/*/_no-contents-table.scss
 **/*/_has-contents-table.scss
+.DS_Store

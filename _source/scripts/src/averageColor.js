@@ -15,7 +15,7 @@ function getAverageColourAsRGB (img, textArea) {
     width = canvas.width = img.naturalWidth || img.offsetWidth || img.width;
 
   context.drawImage(img, 0, 0);
-  
+
   try {
   data = context.getImageData(textArea.x, textArea.y, textArea.w, textArea.h);
   } catch(e) {
@@ -67,10 +67,10 @@ function getAcessibility(textColor, imageColour){
   }
   ratio = Math.round(ratio * 100) / 100; // round to 2 decimal places
   console.log(ratio);
-  console.log(ratio >= 4.5 ? 'YES' : 'NO');
-  console.log(ratio >= 3 ? 'YES' : 'NO');
-  console.log(ratio >= 7 ? 'YES' : 'NO');
-  console.log(ratio >= 4.5 ? 'YES' : 'NO');
+  console.log('WCAG 2 AA Compliant ', ratio >= 4.5 ? 'YES' : 'NO');
+  console.log('WCAG 2 AA Compliant (18pt+) ', ratio >= 3 ? 'YES' : 'NO');
+  console.log('WCAG 2 AAA Compliant ', ratio >= 7 ? 'YES' : 'NO');
+  console.log('WCAG 2 AAA Compliant (18pt+) ', ratio >= 4.5 ? 'YES' : 'NO');
 }
 
 
