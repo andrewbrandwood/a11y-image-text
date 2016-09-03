@@ -52,8 +52,21 @@
 			getAcessibility(getTextAreaColor(),getAverageColourAsRGB($img.get(0), getTextareaDimensions()));
 		}
 
+		function setTextColor(color){
+				var $textArea = $('[data-textarea]');
+				$textArea.css({'color': '#' + color});
+				run();
+		}
+
+		function getColor(e){
+			var $input = $(e.currentTarget);
+			var color = $input.val();
+			setTextColor(color);
+		}
+
 		function init(){
 			$(window).on('draggable:stopped', run);
+			$('[data-js-color]').on('change', getColor);
 			run();
 			setDraggable();
 		}
