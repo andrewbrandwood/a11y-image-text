@@ -54,10 +54,10 @@ function getAcessibility(textColor, imageColour){
     ratio = (l2 + 0.05) / (l1 + 0.05);
   }
   ratio = Math.round(ratio * 100) / 100; // round to 2 decimal places
-  var aa = ratio >= 4.5 ? 'YES' : 'NO';
-  var aaPlus = ratio >= 3 ? 'YES' : 'NO';
-  var aaa = ratio >= 7 ? 'YES' : 'NO';
-  var aaaPlus = ratio >= 4.5 ? 'YES' : 'NO';
+  var aa = ratio >= 4.5 ? 'Passed' : 'Failed';
+  var aaPlus = ratio >= 3 ? 'Passed' : 'Failed';
+  var aaa = ratio >= 7 ? 'Passed' : 'Failed';
+  var aaaPlus = ratio >= 4.5 ? 'Passed' : 'Failed';
 
   console.log('Contrast ratio ', ratio);
   console.log('WCAG 2 AA Compliant ', aa);

@@ -96,7 +96,7 @@
 
 		function isValidCSS(result){
 			var cssClass = 'complience-indicators__item';
-			return result === 'YES' ? (cssClass + '--is-valid') : (cssClass + '--is-invalid');
+			return result === 'Passed' ? (cssClass + '--is-valid') : (cssClass + '--is-invalid');
 		}
 
 		function displayResults(results){
@@ -109,6 +109,12 @@
 			$aaPlus.addClass(isValidCSS(results.aaPlus));
 			$aaa.addClass(isValidCSS(results.aaaPlus));
 			$aaaPlus.addClass(isValidCSS(results.aaaPlus));
+
+			var textIndicator = '[data-complient-indicator]';
+			$aa.find(textIndicator).text(results.aa);
+			$aaPlus.find(textIndicator).text(results.aaPlus);
+			$aaa.find(textIndicator).text(results.aaaPlus);
+			$aaaPlus.find(textIndicator).text(results.aaaPlus);
 
 		}
 

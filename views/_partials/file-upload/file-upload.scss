@@ -15,8 +15,7 @@
   pointer-events: none;
   z-index: 2;
   .image-uploader:hover & {
-    border-color: #ccc;
-    cursor: pointer;
+    cursor: grab;
     background-color: rgba(255,255,255,.4);
   }
 }
