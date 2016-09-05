@@ -11,7 +11,6 @@
 
 			var textColor = getColor($('[data-js-color]'));
 			setTextColor(textColor);
-			setTitleColor(textColor);
 			setColors();
 		}
 
@@ -62,15 +61,9 @@
 			run();
 		}
 
-		function setTitleColor(color){
-			var $title = $('[data-title');
-			$title.css({'color': '#' + color});
-		}
-
 		function setTextColor(color){
-				setTitleColor(color);
-				var $textArea = $('[data-textarea]');
-				$textArea.css({'color': '#' + color});
+				var $labels = $('[data-labels]');
+				$labels.css({'color': '#' + color});
 		}
 
 		function setBgColor(color){
@@ -118,10 +111,19 @@
 
 		}
 
+		function updateFontsize(e){
+			var fontSize = $(e.currentTarget).val();
+			$('[data-textarea]').css({
+				'font-size': fontSize +'px'
+			});
+			run();
+		}
+
 		function init(){
 			$(window).on('draggable:stopped', run);
 			$('[data-js-color]').on('change', run);
 			$('[data-image-uploader-file]').on('change', handleImage);
+			$('[data-font-size]').on('change', updateFontsize);
 			run();
 			setDraggable();
 		}

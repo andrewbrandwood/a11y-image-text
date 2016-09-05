@@ -6,6 +6,7 @@
   border-radius: 5px;
   border: 1px solid #fff;
   padding: 10px;
+  @include transition;
 }
 
 .complience-indicators__item--is-valid {

@@ -1,5 +1,7 @@
 // generic elements where there is only style per element
-
+html {
+  background-color: #ccc;
+}
 body {
   @include transition;
 }

@@ -1,9 +1,8 @@
 <article>
 	<div class="row">
-		<h1 data-title>a11y text on background image check</h1>
+		<h1 data-title data-labels> Text on background image a11y check</h1>
 	</div>
 	<div class="row">
-
 		{{> picture/picture src="flower.jpg" id="ImageTest" }}
 	</div>
 	<div class="row">
@@ -11,8 +10,11 @@
 			<div class="col col--1/2">
 				{{> file-upload/file-upload }}
 			</div>
-			<div class="col col--1/2">
+			<div class="col col--1/4">
 				{{> color-picker/color-picker }}
+			</div>
+			<div class="col col--1/4">
+				{{> font-size-picker/font-size-picker }}
 			</div>
 		</div>
 	</div>
