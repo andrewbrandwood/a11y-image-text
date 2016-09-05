@@ -9,8 +9,6 @@
 
 		function run(){
 			setTitles('Title', 'ImageTest');
-			// setTitles('Title2', 'ImageTest2');
-			// setTitles('Title3', 'ImageTest3');
 
 			getTextareaDimensions();
 		}
@@ -64,9 +62,26 @@
 			setTextColor(color);
 		}
 
+		function handleImage(e){
+			var reader = new FileReader(e);
+			reader.onload = function(event){
+				var img = new Image();
+				img.onload = function(){
+
+					// canvas.width = img.width;
+					// canvas.height = img.height;
+					// ctx.drawImage(img,0,0);
+				}
+				$('[data-main-image]').get(0).src = event.target.result;
+				run();
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+
 		function init(){
 			$(window).on('draggable:stopped', run);
 			$('[data-js-color]').on('change', getColor);
+			$('[data-image-uploader-file]').on('change', handleImage);
 			run();
 			setDraggable();
 		}
