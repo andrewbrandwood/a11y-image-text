@@ -1,5 +1,27 @@
 //Layout - styles for all layout and or grid system
 .row {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   max-width: 800px;
+}
+
+.grid {
+	@include clearfix;
+	margin-left: -10px;
+}
+
+.col {
+	box-sizing: border-box;
+	float: left;
+	min-height: 1px;
+	width: 100%;
+	margin-bottom: 10px;
+  padding-left: 10px;
+	@include respond-to-min($med) {
+		margin-bottom: 0;
+	}
+}
+
+
+@include respond-to-min($med) {
+	@include widths(12);
 }

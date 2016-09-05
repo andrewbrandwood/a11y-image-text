@@ -27,3 +27,91 @@
     }
 
 }
+
+// transition
+@mixin transition {
+    transition:all 0.3s ease;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+}
+
+
+/* Mixin to drop micro clearfix into a selector.
+*
+* .simple-usage {
+*   @include clearfix();
+* }
+*
+* .detailed-usage {
+*   @include clearfix(important);
+* }
+*/
+
+@mixin clearfix($important: false) {
+
+    // Determine whether or not to make declarations important.
+    @if ($important == false) {
+        $important: null;
+    } @else {
+        $important: !important;
+    }
+
+    &:after {
+        content: "" $important;
+        display: table $important;
+        clear: both $important;
+    }
+
+}
+
+
+// Custom Breakpoints
+@mixin respond-to-max($width) {
+    @if $fix-mqs {
+        @if $fix-mqs <= $width {
+            @content;
+        }
+    } @else {
+        @media screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to-min($width) {
+    @if $fix-mqs {
+        @if $fix-mqs >= $width {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-min-max($width--min, $width--max) {
+    @if $fix-mqs {
+        @if $fix-mqs >= $width--min and $fix-mqs <= $width--max {
+            @content;
+        }
+    } @else {
+        @media screen and (min-width: $width--min) and (max-width: $width--max) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-to-min-height($height) {
+    @if $fix-mqs {
+        @if $fix-mqs >= $height {
+            @content;
+        }
+    } @else {
+        @media screen and (min-height: $height) {
+            @content;
+        }
+    }
+}

@@ -1,13 +1,19 @@
 <article>
-	<h1>a11y text on background image check</h1>
 	<div class="row">
-		<h2 id="Title">Flower</h2>
-		<label for="text-color">Pick a colour for text</label>
-		<input class="jscolor" data-js-color type="text" id="text-color" >
+		<h1 data-title>a11y text on background image check</h1>
+	</div>
+	<div class="row">
+
 		{{> picture/picture src="flower.jpg" id="ImageTest" }}
 	</div>
-	<div class="image-uploader">
-		<label for="image-uploader-file">upload image</label>
-		<input type="file" id="image-uploader-file" class="image-uploader__input" data-image-uploader-file />
+	<div class="row">
+		<div class="grid">
+			<div class="col col--1/2">
+				{{> file-upload/file-upload }}
+			</div>
+			<div class="col col--1/2">
+				{{> color-picker/color-picker }}
+			</div>
+		</div>
 	</div>
 </article>

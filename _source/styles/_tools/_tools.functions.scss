@@ -13,7 +13,7 @@
   @return gcd($b, $a % $b);
 }
 
-@mixin cols($cols, $modifier: "") {
+@mixin widths($cols, $modifier: "") {
   @for $i from 1 through $cols - 1 {
     $gcd: gcd($i, $cols);
     $numerator: $i / $gcd;

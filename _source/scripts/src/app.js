@@ -8,9 +8,11 @@
 		var _self = this;
 
 		function run(){
-			setTitles('Title', 'ImageTest');
 
-			getTextareaDimensions();
+			var textColor = getColor($('[data-js-color]'));
+			setTextColor(textColor);
+			setTitleColor(textColor);
+			setColors();
 		}
 
 		function setDraggable(){
@@ -43,35 +45,50 @@
 			return {r:parseInt(parts[1]), g:parseInt(parts[2]), b:parseInt(parts[3]) };
 		}
 
-		function setTitles(TitleId, ImgId){
-			var $img = $('#' + ImgId);
-			var $title = $('#' + TitleId);
-			$title.css({ color: getAverageColourAsRGB($img.get(0), getTextareaDimensions()).css});
-			getAcessibility(getTextAreaColor(),getAverageColourAsRGB($img.get(0), getTextareaDimensions()));
+		function setColors(ImgId){
+			var $img = $('[data-main-image]');
+
+			var textAreaDimensions = getTextareaDimensions();
+			var bgColor = getAverageColourAsRGB($img.get(0), textAreaDimensions);
+
+			setBgColor(bgColor.css);
+
+			getAcessibility(getTextAreaColor(),bgColor);
+		}
+
+		function setColor(color){
+			var bgColor = getBgColor();
+			var textColor = getTextColor();
+			run();
+		}
+
+		function setTitleColor(color){
+			var $title = $('[data-title');
+			$title.css({'color': '#' + color});
 		}
 
 		function setTextColor(color){
+				setTitleColor(color);
 				var $textArea = $('[data-textarea]');
 				$textArea.css({'color': '#' + color});
-				run();
+		}
+
+		function setBgColor(color){
+			console.log(color);
+				var $bg = $('body');
+				$bg.css({'background-color': color});
 		}
 
 		function getColor(e){
-			var $input = $(e.currentTarget);
+			var $input = $(e);
 			var color = $input.val();
-			setTextColor(color);
+			return color;
 		}
 
 		function handleImage(e){
 			var reader = new FileReader(e);
 			reader.onload = function(event){
 				var img = new Image();
-				img.onload = function(){
-
-					// canvas.width = img.width;
-					// canvas.height = img.height;
-					// ctx.drawImage(img,0,0);
-				}
 				$('[data-main-image]').get(0).src = event.target.result;
 				run();
 			}
@@ -80,7 +97,7 @@
 
 		function init(){
 			$(window).on('draggable:stopped', run);
-			$('[data-js-color]').on('change', getColor);
+			$('[data-js-color]').on('change', run);
 			$('[data-image-uploader-file]').on('change', handleImage);
 			run();
 			setDraggable();

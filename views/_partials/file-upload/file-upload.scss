@@ -1,0 +1,28 @@
+//file upload styles
+
+.image-uploader {
+  position: relative;
+}
+
+.image-uploader__label {
+  display: block;
+  border-radius: 10px;
+  border: 3px dashed #fff;
+  background-color: rgba(255,255,255,.2);
+  width: 100%;
+  height: 100px;
+  &::hover {
+    border-color: #ccc;
+  }
+}
+
+.image-uploader__input {
+  position: absolute;
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  right: 0;
+  bottom: 0;
+}

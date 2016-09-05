@@ -13,6 +13,7 @@
 * _SETTINGS
 * Variables for colors
 * Global variables
+* Layout these are 'em' widths based on default font size of 16px;
 * 
 * _TOOLS
 * Common Sass mixins
@@ -25,10 +26,17 @@
 * Reset - resets all margin and padding to 0
 * 
 * _ELEMENTS
+*  generic elements where there is only style per element
 * links - styles for links
 * 
 * _OBJECTS
 * Layout - styles for all layout and or grid system
+* 
+* COLOR-PICKER
+* color-picker styles
+* 
+* FILE-UPLOAD
+* file upload styles
 * 
 * PICTURE
 * picture
@@ -40,12 +48,16 @@
 
 @import "/Sites/a11y-image-text/_source/styles/_settings/_settings.colors.scss";
 @import "/Sites/a11y-image-text/_source/styles/_settings/_settings.global.scss";
+@import "/Sites/a11y-image-text/_source/styles/_settings/_settings.layouts.scss";
 @import "/Sites/a11y-image-text/_source/styles/_tools/_tools.mixins.scss";
 @import "/Sites/a11y-image-text/_source/styles/_tools/_tools.functions.scss";
 @import "/Sites/a11y-image-text/_source/styles/_tools/_tools.typography.scss";
 @import "/Sites/a11y-image-text/_source/styles/_generic/_generic.box-sizing.scss";
 @import "/Sites/a11y-image-text/_source/styles/_generic/_generic.normalize.scss";
 @import "/Sites/a11y-image-text/_source/styles/_generic/_generic.reset.scss";
+@import "/Sites/a11y-image-text/_source/styles/_elements/_elements.generic.scss";
 @import "/Sites/a11y-image-text/_source/styles/_elements/_elements.links.scss";
 @import "/Sites/a11y-image-text/_source/styles/_objects/_objects.layout.scss";
+@import "/Sites/a11y-image-text/views/_partials/color-picker/color-picker.scss";
+@import "/Sites/a11y-image-text/views/_partials/file-upload/file-upload.scss";
 @import "/Sites/a11y-image-text/views/_partials/picture/picture.scss";
