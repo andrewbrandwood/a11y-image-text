@@ -1,7 +1,16 @@
 //Layout - styles for all layout and or grid system
 .row {
-  margin: 0 auto 20px;
+  margin: 0 5% 20px;
+  width: 90%;
   max-width: 800px;
+  @include respond-to-min($med) {
+    margin: 0 auto 20px;
+  }
+}
+
+.row--full {
+  width: 100%;
+  margin: 0 auto 20px;
 }
 
 .grid {
