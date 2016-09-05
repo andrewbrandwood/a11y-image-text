@@ -108,7 +108,6 @@
 		}
 
 		function displayResults(results){
-			console.log(results.ratio);
 			$('[complience-indicators-item]').removeClass('complience-indicators__item--is-valid, complience-indicators__item--is-invalid');
 			var $aa = $('[complience-indicators-item="aa"]');
 			var $aaPlus = $('[complience-indicators-item="aaPlus"]');
