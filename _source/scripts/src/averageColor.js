@@ -2,7 +2,6 @@ function getAverageColourAsRGB(sourceImage, textArea){
   var colorThief = new ColorThief();
   var result = colorThief.getColor(sourceImage,null, textArea);
   var pallet = colorThief.getPalette(sourceImage, 2, null, textArea);
-  console.log(pallet);
   var rgb = {r:result[0],g:result[1],b:result[2]};
   rgb.css = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
   return rgb;
