@@ -51,8 +51,23 @@
 			var bgColor = getAverageColourAsRGB($img.get(0), textAreaDimensions);
 
 			setBgColor(bgColor.css);
+			setPallette(bgColor.palette);
 
 			displayResults(getAcessibility(getTextAreaColor(),bgColor));
+		}
+
+		function setPallette(paletteArr){
+			var $palette = $('[data-palette-container]');
+			$palette.html('');
+			for(var i = 0; i < paletteArr.length; i++){
+				var color = 'rgb('+ paletteArr[i][0] + ', ' + paletteArr[i][1] + ' , ' + paletteArr[i][2]+ ')';
+				//console.log('r:' + paletteArr[0] + ' g: ' + paletteArr[1] + ' b: ' + paletteArr[2]);
+				var $paletteItem = $('<div />', {
+					'css': {'background-color': color},
+					'class': 'palette__item'
+				});
+				$palette.append($paletteItem);
+			}
 		}
 
 		function setColor(color){
