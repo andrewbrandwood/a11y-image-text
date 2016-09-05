@@ -7,3 +7,11 @@
   border: 1px solid #fff;
   padding: 10px;
 }
+
+.complience-indicators__item--is-valid {
+  background-color: #9de819;
+}
+
+.complience-indicators__item--is-invalid {
+  background-color: #e8194a;
+}

@@ -53,7 +53,7 @@
 
 			setBgColor(bgColor.css);
 
-			getAcessibility(getTextAreaColor(),bgColor);
+			displayResults(getAcessibility(getTextAreaColor(),bgColor));
 		}
 
 		function setColor(color){
@@ -74,7 +74,6 @@
 		}
 
 		function setBgColor(color){
-			console.log(color);
 				var $bg = $('body');
 				$bg.css({'background-color': color});
 		}
@@ -93,6 +92,24 @@
 				run();
 			}
 			reader.readAsDataURL(e.target.files[0]);
+		}
+
+		function isValidCSS(result){
+			var cssClass = 'complience-indicators__item';
+			return result === 'YES' ? (cssClass + '--is-valid') : (cssClass + '--is-invalid');
+		}
+
+		function displayResults(results){
+			$('[complience-indicators-item]').removeClass('complience-indicators__item--is-valid, complience-indicators__item--is-invalid');
+			var $aa = $('[complience-indicators-item="aa"]');
+			var $aaPlus = $('[complience-indicators-item="aaPlus"]');
+			var $aaa = $('[complience-indicators-item="aaa"]');
+			var $aaaPlus = $('[complience-indicators-item="aaaPlus"]');
+			$aa.addClass(isValidCSS(results.aa));
+			$aaPlus.addClass(isValidCSS(results.aaPlus));
+			$aaa.addClass(isValidCSS(results.aaaPlus));
+			$aaaPlus.addClass(isValidCSS(results.aaaPlus));
+
 		}
 
 		function init(){
