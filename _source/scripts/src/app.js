@@ -41,6 +41,7 @@
 			var rgbString = $textArea.css('color');
 			var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
 			delete parts[0];
+			//console.log('r:' + parseInt(parts[1])+', g: ' + parseInt(parts[2])+', b: ' + parseInt(parts[3]) );
 			return {r:parseInt(parts[1]), g:parseInt(parts[2]), b:parseInt(parts[3]) };
 		}
 
@@ -61,7 +62,6 @@
 			$palette.html('');
 			for(var i = 0; i < paletteArr.length; i++){
 				var color = 'rgb('+ paletteArr[i][0] + ', ' + paletteArr[i][1] + ' , ' + paletteArr[i][2]+ ')';
-				//console.log('r:' + paletteArr[0] + ' g: ' + paletteArr[1] + ' b: ' + paletteArr[2]);
 				var $paletteItem = $('<div />', {
 					'css': {'background-color': color},
 					'class': 'palette__item'
@@ -108,6 +108,7 @@
 		}
 
 		function displayResults(results){
+			console.log(results.ratio);
 			$('[complience-indicators-item]').removeClass('complience-indicators__item--is-valid, complience-indicators__item--is-invalid');
 			var $aa = $('[complience-indicators-item="aa"]');
 			var $aaPlus = $('[complience-indicators-item="aaPlus"]');

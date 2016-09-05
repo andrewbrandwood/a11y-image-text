@@ -48,8 +48,8 @@ function wcag1(){
 
 function getAcessibility(textColor, imageColour){
   var ratio = 1;
-  var l1 = getLuminance([textColor.r, textColor.g, textColor.b]);
-  var l2 = getLuminance([imageColour.r, imageColour.g, imageColour.b]);
+  var l1 = getLuminance([textColor.r/255, textColor.g/255, textColor.b/255]);
+  var l2 = getLuminance([imageColour.r/255, imageColour.g/255, imageColour.b/255]);
   if (l1 >= l2) {
     ratio = (l1 + 0.05) / (l2 + 0.05);
   } else {
