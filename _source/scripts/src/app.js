@@ -6,15 +6,19 @@
 	Website = function(){
 
 		var _self = this;
-		var validationArr = {
-				aaArr: {passed:0,failed:0},
-				aaPlusArr: {passed:0,failed:0},
-				aaaArr: {passed:0,failed:0},
-				aaaPlusArr: {passed:0,failed:0}
-			};
+		var validationArr = {};
+
+		function resetValidation(){
+			validationArr = {
+					aaArr: {passed:0,failed:0},
+					aaPlusArr: {passed:0,failed:0},
+					aaaArr: {passed:0,failed:0},
+					aaaPlusArr: {passed:0,failed:0}
+				};
+			}
 
 		function run(){
-
+			resetValidation();
 			var textColor = getColor($('[data-js-color]'));
 			setTextColor(textColor);
 			setColors();
@@ -50,6 +54,31 @@
 			return {r:parseInt(parts[1]), g:parseInt(parts[2]), b:parseInt(parts[3]) };
 		}
 
+		function getPercentagePassed(type){
+			var total = validationArr[type + 'Arr'].passed + validationArr[type + 'Arr'].failed;
+			var perc = validationArr[type + 'Arr'].passed / total * 100;
+			return perc;
+		}
+
+		function updateResult(){
+			var text = 'Not very complient';
+
+
+			var aaPerc = getPercentagePassed('aa');
+			var aaPlusPerc = getPercentagePassed('aaPlus');
+			var aaaPerc = getPercentagePassed('aaa');
+			var aaaPlusPerc = getPercentagePassed('aaaPlus');
+
+
+			var html = 'aa is ' + aaPerc + '% complient <br />';
+			html += 'aa (18pt +) is ' + aaPlusPerc + '% complient <br />';
+			html += 'aaa is ' + aaaPerc + '% complient <br />';
+			html += 'aaa (18pt +) is ' + aaaPlusPerc + '% complient <br />';
+
+
+			$('[data-complience-result]').html(html);
+		}
+
 		function setColors(ImgId){
 			var $img = $('[data-main-image]');
 
@@ -59,6 +88,8 @@
 			setBgColor(bgColor.css);
 			setPallette(bgColor.palette);
 			displayResults(getAcessibility(getTextAreaColor(),bgColor));
+
+			updateResult();
 		}
 
 		function setPallette(paletteArr){
@@ -83,7 +114,6 @@
 				for(var item in a11yResults){
 					var validIdentifier = [a11yResults[item]][0].toLowerCase();
 					validationArr[item + 'Arr'][validIdentifier]++;
-
 
 					var $item = $('<div />', {
 						"class": 'accesibility-palette-indicator ' + isValidCSS(a11yResults[item]),
@@ -151,6 +181,12 @@
 			$aaPlus.find(textIndicator).text(results.aaPlus);
 			$aaa.find(textIndicator).text(results.aaaPlus);
 			$aaaPlus.find(textIndicator).text(results.aaaPlus);
+
+			// add results to validation array
+			validationArr['aaArr'][results.aa.toLowerCase()] ++;
+			validationArr['aaPlusArr'][results.aaPlus.toLowerCase()] ++;
+			validationArr['aaaArr'][results.aaa.toLowerCase()] ++;
+			validationArr['aaaPlusArr'][results.aaaPlus.toLowerCase()] ++;
 
 		}
 
