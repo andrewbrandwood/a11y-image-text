@@ -26,6 +26,7 @@
     "gulp-sass-generate-contents": "^0.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
+    "handlebars": "^4.0.5",
     "jshint": "^2.9.2",
     "run-sequence": "^1.1.0",
     "yargs": "^5.0.0"
@@ -38,14 +39,19 @@
     "express-logger": "0.0.3",
     "express-method-override": "0.0.3",
     "express-session": "^1.10.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
     "gulp-imagemin": "^3.0.3",
     "gulp-load-plugins": "^0.10.0",
+    "gulp-wrap": "^0.13.0",
     "karma": "^0.12.37",
     "karma-chai": "^0.1.0",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.0.2",
     "karma-notification-reporter": "0.0.1",
     "karma-phantomjs-launcher": "^0.2.0",
+    "merge-stream": "^1.0.0",
     "mocha": "^2.2.5",
     "phantomjs": "^1.9.17"
   }

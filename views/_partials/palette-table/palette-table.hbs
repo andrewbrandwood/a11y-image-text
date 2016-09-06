@@ -1,0 +1,33 @@
+<table class="palette-table">
+  <thead {{#if headerVisible}}{{else}}class="visuallyhidden"{{/if}}>
+    <tr>
+      <th class="palette-table__col palette-table__col--header palette-table__color">
+        Colour
+      </th>
+      <th class="palette-table__col palette-table__col--header palette-table__aa">
+        AA
+      </th>
+      <th class="palette-table__col palette-table__col--header palette-table__aaPlus">
+        AA (18pt +)
+      </th>
+      <th class="palette-table__col palette-table__col--header palette-table__aaa">
+        AAA
+      </th>
+      <th class="palette-table__col palette-table__col--header palette-table__aaaPlus">
+        AAA (18pt +)
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="palette-table__col palette-table__color">
+        <div class="palette__item-color" style="background-color: {{color}};"><span class="visuallyhidden">{{color}}</span></div>
+      </td>
+      {{#each indicator}}
+        <td class="palette-table__col palette-table__aa">
+          <div class="accesibility-palette-indicator complience-indicators__item{{stateModifier}}">{{state}}</div>
+        </td>
+      {{/each}}
+    </tr>
+  </tbody>
+</table>

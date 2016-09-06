@@ -5,9 +5,8 @@ var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     sgc = require('gulp-sass-generate-contents'),
     runSeq = require('run-sequence'),
-    config = require('./_config/project.json'),
 	  creds = require('./_config/creds.json'),
-    srcStyles = config.src + '/' + config.dirs.styles,
+
     imagemin = require('gulp-imagemin'),
     sourcemaps   = require('gulp-sourcemaps'),
     gulpif       = require('gulp-if'),
@@ -18,6 +17,22 @@ var gulp = require('gulp'),
     argv         = require('yargs').argv,
     postcss      = require('gulp-postcss'),
     autoprefixer = require('autoprefixer');
+
+
+    // Tasks
+    var tasks         = {};
+
+    tasks.default     = [];
+    tasks.watch       = [];
+
+    // Config
+    var config        = require('./_config/project.json');
+    var srcStyles     = config.src + '/' + config.dirs.styles;
+
+
+    config.cleanPaths = [];
+    config.creds      = require('./_config/creds.json');
+
 
 /* ============================================================ *\
     SCRIPTS / JS
@@ -86,11 +101,13 @@ gulp.task('images', function () {
     MAIN TASKS
 \* ============================================================ */
 
+require('./tools/tasks/compile-handlebars.js')(gulp, config);
+
 
 gulp.task('watch', function () {
 	gulp.watch([config.src + '/' + config.dirs.styles + '/**/*.scss', config.dirs.components + '/**/*.scss', config.src + '/' + config.dirs.components + '/**/*.js', config.src + '/' + config.dirs.scripts + '/**/*.js'], ['sass:dev', 'scripts', 'scripts:vendor']);
 });
 
 gulp.task('default', function (cb) {
-	runSeq(['sass-generate-contents'],['sass:dev', 'images', 'watch', 'scripts', 'scripts:vendor'], cb);
+	runSeq(['sass-generate-contents', 'compile-handlebars'],['sass:dev', 'images', 'watch', 'scripts', 'scripts:vendor'], cb);
 });
