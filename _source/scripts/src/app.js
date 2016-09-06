@@ -6,6 +6,12 @@
 	Website = function(){
 
 		var _self = this;
+		var validationArr = {
+				aaArr: {passed:0,failed:0},
+				aaPlusArr: {passed:0,failed:0},
+				aaaArr: {passed:0,failed:0},
+				aaaPlusArr: {passed:0,failed:0}
+			};
 
 		function run(){
 
@@ -75,16 +81,20 @@
 					"class": 'accesibility-palette'
 				});
 				for(var item in a11yResults){
+					var validIdentifier = [a11yResults[item]][0].toLowerCase();
+					validationArr[item + 'Arr'][validIdentifier]++;
+
+
 					var $item = $('<div />', {
 						"class": 'accesibility-palette-indicator ' + isValidCSS(a11yResults[item]),
 						"text": a11yResults[item]
 					});
-					//console.log($item);
 					$accesibilityItem.append($item);
 				}
 				$paletteItem.append($accesibilityItem);
 
 				$palette.append($paletteItem);
+
 			}
 		}
 
