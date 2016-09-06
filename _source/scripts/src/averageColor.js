@@ -67,6 +67,6 @@ function getAcessibility(textColor, imageColour){
   // console.log('WCAG 2 AAA Compliant ', aaa);
   // console.log('WCAG 2 AAA Compliant (18pt+) ', aaaPlus);
 
-  return {ratio: ratio, aa:aa, aaPlus:aaPlus, aaa:aaa, aaaPlus:aaaPlus};
+  return {aa:aa, aaPlus:aaPlus, aaa:aaa, aaaPlus:aaaPlus};
 
 }

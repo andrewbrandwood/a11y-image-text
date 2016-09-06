@@ -41,7 +41,6 @@
 			var rgbString = $textArea.css('color');
 			var parts = rgbString.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
 			delete parts[0];
-			//console.log('r:' + parseInt(parts[1])+', g: ' + parseInt(parts[2])+', b: ' + parseInt(parts[3]) );
 			return {r:parseInt(parts[1]), g:parseInt(parts[2]), b:parseInt(parts[3]) };
 		}
 
@@ -53,19 +52,38 @@
 
 			setBgColor(bgColor.css);
 			setPallette(bgColor.palette);
-
 			displayResults(getAcessibility(getTextAreaColor(),bgColor));
 		}
 
 		function setPallette(paletteArr){
 			var $palette = $('[data-palette-container]');
+			var textAreaColor = getTextAreaColor();
 			$palette.html('');
 			for(var i = 0; i < paletteArr.length; i++){
-				var color = 'rgb('+ paletteArr[i][0] + ', ' + paletteArr[i][1] + ' , ' + paletteArr[i][2]+ ')';
+				var color = 'rgb('+ paletteArr[i][0] + ',' + paletteArr[i][1] + ',' + paletteArr[i][2]+ ')';
 				var $paletteItem = $('<div />', {
-					'css': {'background-color': color},
 					'class': 'palette__item'
 				});
+				var $paletteColor = $('<div />', {
+					'css': {'background-color': color},
+					'class': 'palette__item-color'
+				});
+				$paletteItem.append($paletteColor);
+				var a11yResults = getAcessibility(textAreaColor,{r:paletteArr[i][0], g: paletteArr[i][1], b: paletteArr[i][2] });
+
+				var $accesibilityItem = $('<div />', {
+					"class": 'accesibility-palette'
+				});
+				for(var item in a11yResults){
+					var $item = $('<div />', {
+						"class": 'accesibility-palette-indicator ' + isValidCSS(a11yResults[item]),
+						"text": a11yResults[item]
+					});
+					//console.log($item);
+					$accesibilityItem.append($item);
+				}
+				$paletteItem.append($accesibilityItem);
+
 				$palette.append($paletteItem);
 			}
 		}
