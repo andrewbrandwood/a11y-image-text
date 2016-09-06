@@ -3,6 +3,6 @@ html {
 
 }
 body {
-  background-color: #ccc;
-  @include transition;
+  background: radial-gradient(ellipse at center, rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+  color: #fff;
 }

@@ -20,7 +20,6 @@
 		function run(){
 			resetValidation();
 			var textColor = getColor($('[data-js-color]'));
-			setTextColor(textColor);
 			setColors();
 		}
 
@@ -63,7 +62,6 @@
 		function updateResult(){
 			var text = 'Not very complient';
 
-
 			var aaPerc = getPercentagePassed('aa');
 			var aaPlusPerc = getPercentagePassed('aaPlus');
 			var aaaPerc = getPercentagePassed('aaa');
@@ -85,7 +83,6 @@
 			var textAreaDimensions = getTextareaDimensions();
 			var bgColor = getAverageColourAsRGB($img.get(0), textAreaDimensions);
 
-			setBgColor(bgColor.css);
 			setPallette(bgColor.palette);
 			displayResults(getAcessibility(getTextAreaColor(),bgColor));
 
@@ -132,16 +129,6 @@
 			var bgColor = getBgColor();
 			var textColor = getTextColor();
 			run();
-		}
-
-		function setTextColor(color){
-				var $labels = $('[data-labels]');
-				$labels.css({'color': '#' + color});
-		}
-
-		function setBgColor(color){
-				var $bg = $('body');
-				$bg.css({'background-color': color});
 		}
 
 		function getColor(e){
