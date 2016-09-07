@@ -2,20 +2,41 @@
 
 .palette-table {
   width: 100%;
+  height: 100%;
 }
 
 .palette-table__col {
   width: auto;
   text-align: center;
   border: 2px solid transparent;
+  height: 100%;
 }
 
 .palette-table__col-title {
-  background-color: rgba(0,0,0,.5);
-  padding: 30px;
+  display: none;
+  padding: 20px 10px;
+  @include respond-to-min($small){
+    display: block;
+    background-color: rgba(0,0,0,.5);
+    height: 100%;
+  }
+  @include respond-to-min($med){
+    padding: 25px;
+  }
 }
 
-.palette-table__color {
-  width: 125px;
+.palette-table__col-item {
+  padding: 20px 10px;
+  @include respond-to-min($med){
+    padding: 25px;
+  }
+}
 
+.palette__item-color-text {
+    text-indent: -9999em;
+    display: inline-block;
+    padding: 0 20px;
+    @include respond-to-min($med){
+      text-indent: 0;
+    }
 }

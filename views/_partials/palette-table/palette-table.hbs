@@ -21,11 +21,11 @@
   <tbody>
     <tr>
       <td class="palette-table__col palette-table__color">
-        <div class="palette__item-color" style="background-color: {{color}};"><span class="visuallyhidden">{{color}}</span></div>
+        <div class="palette__item-color palette-table__col-item" style="background-color: {{color}};"><span class="palette__item-color-text">{{color}}</span></div>
       </td>
       {{#each indicator}}
         <td class="palette-table__col palette-table__aa">
-          <div class="accesibility-palette-indicator compliance-indicators__item{{stateModifier}}">{{state}}</div>
+          <div class="palette-table__col-item compliance-indicators__item{{stateModifier}}">{{state}}</div>
         </td>
       {{/each}}
     </tr>
