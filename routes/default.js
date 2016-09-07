@@ -1,5 +1,5 @@
 var path = require('path');
-var templateHelpers = require(path.resolve(__dirname, '..', 'utils', 'templateHelpers.js'))();
+var templateHelpers = require(path.resolve(__dirname, '..', 'utils', 'templateHelpers.js'));
 var templateData = require(path.resolve(__dirname, '..', '_data', 'styleguide.json'));
 
 var WebsiteController = function (app) {

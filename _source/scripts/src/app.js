@@ -73,8 +73,7 @@
 			html += 'aaa is ' + aaaPerc + '% complient <br />';
 			html += 'aaa (18pt +) is ' + aaaPlusPerc + '% complient <br />';
 
-
-			$('[data-complience-result]').html(html);
+			$('[data-compliance-result]').html(html);
 		}
 
 		function setColors(ImgId){
@@ -83,8 +82,8 @@
 			var textAreaDimensions = getTextareaDimensions();
 			var bgColor = getAverageColourAsRGB($img.get(0), textAreaDimensions);
 
-			setPallette(bgColor.palette);
-			displayResults(getAcessibility(getTextAreaColor(),bgColor));
+			//setPallette(bgColor.palette);
+			displayResults(getAcessibility(getTextAreaColor(),bgColor), bgColor);
 
 			updateResult();
 		}
@@ -148,33 +147,17 @@
 		}
 
 		function isValidCSS(result){
-			var cssClass = 'complience-indicators__item';
-			return result === 'Passed' ? (cssClass + '--is-valid') : (cssClass + '--is-invalid');
+			return result === 'Passed' ? '--is-valid' : '--is-invalid';
 		}
 
-		function displayResults(results){
-			$('[complience-indicators-item]').removeClass('complience-indicators__item--is-valid, complience-indicators__item--is-invalid');
-			var $aa = $('[complience-indicators-item="aa"]');
-			var $aaPlus = $('[complience-indicators-item="aaPlus"]');
-			var $aaa = $('[complience-indicators-item="aaa"]');
-			var $aaaPlus = $('[complience-indicators-item="aaaPlus"]');
-			$aa.addClass(isValidCSS(results.aa));
-			$aaPlus.addClass(isValidCSS(results.aaPlus));
-			$aaa.addClass(isValidCSS(results.aaaPlus));
-			$aaaPlus.addClass(isValidCSS(results.aaaPlus));
-
-			var textIndicator = '[data-complient-indicator]';
-			$aa.find(textIndicator).text(results.aa);
-			$aaPlus.find(textIndicator).text(results.aaPlus);
-			$aaa.find(textIndicator).text(results.aaaPlus);
-			$aaaPlus.find(textIndicator).text(results.aaaPlus);
-
-			// add results to validation array
-			validationArr['aaArr'][results.aa.toLowerCase()] ++;
-			validationArr['aaPlusArr'][results.aaPlus.toLowerCase()] ++;
-			validationArr['aaaArr'][results.aaa.toLowerCase()] ++;
-			validationArr['aaaPlusArr'][results.aaaPlus.toLowerCase()] ++;
-
+		function displayResults(results, bgColor){
+			var indicator = [];
+			for(var item in results){
+				indicator.push({ type: item, state: results[item], stateModifier: isValidCSS(results[item]) });
+				validationArr[item+'Arr'][results[item].toLowerCase()] ++;
+			}
+			var template = window.a11y.templates['palette-table'];
+			$('[data-accessibility-palette]').append(template({ color: bgColor.css, indicator: indicator, headerVisible: true }));
 		}
 
 		function updateFontsize(e){

@@ -1,8 +1,8 @@
-//complience-indicators
-.complience-indicators__title {
+//compliance-indicators
+.compliance-indicators__title {
   margin-bottom: 20px;
 }
-.complience-indicators__item {
+.compliance-indicators__item {
   min-height: 100px;
   background: rgba(255,255,255,.2);
   border-radius: 5px;
@@ -11,10 +11,10 @@
   @include transition;
 }
 
-.complience-indicators__item--is-valid {
+.compliance-indicators__item--is-valid {
   background-color: #9de819;
 }
 
-.complience-indicators__item--is-invalid {
+.compliance-indicators__item--is-invalid {
   background-color: #e8194a;
 }
