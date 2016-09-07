@@ -7,4 +7,15 @@
 .palette-table__col {
   width: auto;
   text-align: center;
+  border: 2px solid transparent;
+}
+
+.palette-table__col-title {
+  background-color: rgba(0,0,0,.5);
+  padding: 30px;
+}
+
+.palette-table__color {
+  width: 125px;
+
 }

@@ -2,14 +2,7 @@
 .compliance-indicators__title {
   margin-bottom: 20px;
 }
-.compliance-indicators__item {
-  min-height: 100px;
-  background: rgba(255,255,255,.2);
-  border-radius: 5px;
-  border: 1px solid #fff;
-  padding: 10px;
-  @include transition;
-}
+
 
 .compliance-indicators__item--is-valid {
   background-color: #9de819;

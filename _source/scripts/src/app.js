@@ -151,13 +151,15 @@
 		}
 
 		function displayResults(results, bgColor){
+			var $mainColorContainer = $('[data-accessibility-palette]');
+			$mainColorContainer.html('');
 			var indicator = [];
 			for(var item in results){
 				indicator.push({ type: item, state: results[item], stateModifier: isValidCSS(results[item]) });
 				validationArr[item+'Arr'][results[item].toLowerCase()] ++;
 			}
 			var template = window.a11y.templates['palette-table'];
-			$('[data-accessibility-palette]').append(template({ color: bgColor.css, indicator: indicator, headerVisible: true }));
+			$mainColorContainer.append(template({ color: bgColor.css, indicator: indicator, headerVisible: true }));
 		}
 
 		function updateFontsize(e){
