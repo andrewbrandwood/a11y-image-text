@@ -85,7 +85,21 @@
 			setPallette(bgColor.palette);
 			displayResults(getAcessibility(getTextAreaColor(),bgColor), bgColor);
 
-			updateResult();
+			//updateResult();
+			updateOverall(bgColor.palette);
+		}
+
+		function updateOverall(paletteArr){
+			var $paletteContainer = $('[data-accessibility-palette-overall]');
+			$paletteContainer.html('');
+			var indicator = [];
+			var passedTotal = Object.keys(paletteArr).length;
+			for(var item in validationArr){
+				var modifier = ((validationArr[item].passed-1) >= passedTotal) ? 'passed' : 'failed';
+				indicator.push({ type: item, state: modifier, stateModifier: isValidCSS(modifier)});
+			}
+			var template = window.a11y.templates['palette-table'];
+			$paletteContainer.append(template({ color: 'transparent', indicator: indicator, headerVisible: true }));
 		}
 
 		function setPallette(paletteArr){
@@ -94,41 +108,17 @@
 			$palette.html('');
 			for(var i = 0; i < paletteArr.length; i++){
 				var color = 'rgb('+ paletteArr[i][0] + ',' + paletteArr[i][1] + ',' + paletteArr[i][2]+ ')';
-				// var $paletteItem = $('<div />', {
-				// 	'class': 'palette__item'
-				// });
-				// var $paletteColor = $('<div />', {
-				// 	'css': {'background-color': color},
-				// 	'class': 'palette__item-color'
-				// });
-				// $paletteItem.append($paletteColor);
+
 				var a11yResults = getAcessibility(textAreaColor,{r:paletteArr[i][0], g: paletteArr[i][1], b: paletteArr[i][2] });
 
-				// var $accesibilityItem = $('<div />', {
-				// 	"class": 'accesibility-palette'
-				// });
 				var indicator = [];
 				for(var item in a11yResults){
-					// var validIdentifier = [a11yResults[item]][0].toLowerCase();
-					// validationArr[item + 'Arr'][validIdentifier]++;
-					//
-					// var $item = $('<div />', {
-					// 	"class": 'accesibility-palette-indicator ' + isValidCSS(a11yResults[item]),
-					// 	"text": a11yResults[item]
-					// });
-
-					indicator.push({ type: item, state: a11yResults[item], stateModifier: isValidCSS(a11yResults[item]) });
+					indicator.push({ type: item, state: a11yResults[item], stateModifier: isValidCSS(a11yResults[item])});
 					validationArr[item+'Arr'][a11yResults[item].toLowerCase()] ++;
-
-					//$accesibilityItem.append($item);
 				}
-				//$paletteItem.append($accesibilityItem);
 
 				var template = window.a11y.templates['palette-table'];
-				$palette.append(template({ color: color, indicator: indicator,}));
-
-				//$palette.append($paletteItem);
-
+				$palette.append(template({ color: color, indicator: indicator}));
 			}
 		}
 
@@ -150,12 +140,12 @@
 				var img = new Image();
 				$('[data-main-image]').get(0).src = event.target.result;
 				run();
-			}
+			};
 			reader.readAsDataURL(e.target.files[0]);
 		}
 
 		function isValidCSS(result){
-			return result === 'Passed' ? '--is-valid' : '--is-invalid';
+			return result.toLowerCase() === 'passed' ? '--is-valid' : '--is-invalid';
 		}
 
 		function displayResults(results, bgColor){
