@@ -20,6 +20,10 @@
   @include respond-to-min($med){
     width: 20%;
   }
+
+  .accessibility-palette--overall & {
+    display: none;
+  }
 }
 
 .palette-table__col-title {
