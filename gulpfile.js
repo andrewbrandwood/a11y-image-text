@@ -16,7 +16,10 @@ var gulp = require('gulp'),
     jshintConfig = require('./_config/jshint.json'),
     argv         = require('yargs').argv,
     postcss      = require('gulp-postcss'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    handlebars = require('gulp-compile-handlebars'),
+    rename = require('gulp-rename');
+
 
 
     // Tasks
@@ -97,11 +100,25 @@ gulp.task('images', function () {
       .pipe(gulp.dest(config.dest + '/' + config.dirs.images));
 });
 
+
+gulp.task('compile-html', function () {
+    var templateData = {}, // if template data is used then get it from a json file
+    options = {
+        batch : ['./views/_partials']
+    }
+
+    return gulp.src(config.dirs.components + '/**/*.hbs')
+        .pipe(handlebars(templateData, options))
+        .pipe(rename({extname: '.html'}))
+        .pipe(gulp.dest(config.build));
+});
+
 /* ============================================================ *\
     MAIN TASKS
 \* ============================================================ */
 
 require('./tools/tasks/compile-handlebars.js')(gulp, config);
+require('./tools/tasks/copy-assets.js')(gulp, config);
 
 
 gulp.task('watch', function () {
@@ -110,4 +127,8 @@ gulp.task('watch', function () {
 
 gulp.task('default', function (cb) {
 	runSeq(['sass-generate-contents', 'compile-handlebars'],['sass:dev', 'images', 'watch', 'scripts', 'scripts:vendor'], cb);
+});
+
+gulp.task('build', function (cb) {
+	runSeq(['sass-generate-contents', 'compile-handlebars'],['sass:dev', 'images', 'scripts', 'scripts:vendor'],['compile-html', 'copy'], cb);
 });

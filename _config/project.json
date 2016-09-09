@@ -1,6 +1,7 @@
 {
 	"dest": "public/_client",
 	"src": "_source",
+	"build": "_build",
 	"dirs": {
         "styles":     	"styles",
         "scripts":    	"scripts",
