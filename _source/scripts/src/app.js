@@ -20,7 +20,7 @@
 		function run(){
 			resetValidation();
 			var textColor = getColor($('[data-js-color]'));
-			setColors();
+			setColors(textColor);
 		}
 
 		function setDraggable(){
@@ -76,7 +76,13 @@
 			$('[data-compliance-result]').html(html);
 		}
 
-		function setColors(ImgId){
+		function updateTextColor(color){
+			$('[data-label]').css({
+				'color': '#' + color
+			});
+		}
+
+		function setColors(color){
 			var $img = $('[data-main-image]');
 
 			var textAreaDimensions = getTextareaDimensions();
@@ -87,6 +93,7 @@
 
 			//updateResult();
 			updateOverall(bgColor.palette);
+			updateTextColor(color);
 		}
 
 		function updateOverall(paletteArr){
@@ -105,6 +112,7 @@
 		function setPallette(paletteArr){
 			var $palette = $('[data-palette-container]');
 			var textAreaColor = getTextAreaColor();
+
 			$palette.html('');
 			for(var i = 0; i < paletteArr.length; i++){
 				var color = 'rgb('+ paletteArr[i][0] + ',' + paletteArr[i][1] + ',' + paletteArr[i][2]+ ')';
@@ -120,6 +128,7 @@
 				var template = window.a11y.templates['palette-table'];
 				$palette.append(template({ color: color, indicator: indicator}));
 			}
+
 		}
 
 		function setColor(color){
