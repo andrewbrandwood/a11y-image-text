@@ -19,6 +19,7 @@ var WebsiteController = function (app) {
 
 
 		var model = {
+			layout: false,
 			helpers: templateHelpers,
 			content:	templateData
 		}
@@ -37,7 +38,7 @@ var WebsiteController = function (app) {
 	function parseUrl(url){
 		if(url === '/' || url === '' || url === undefined || url === 'favicon.ico'){
 			// this acts as the default view file when working locally
-			url = 'default'
+			url = 'index'
 		}
 		return url;
 	}

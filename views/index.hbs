@@ -1,9 +1,15 @@
+{{> header}}
 <article>
 	<div class="row">
 		<h1 data-title class="main-title">Text on background image a11y check</h1>
 		<p>This is a guide to foreground colour accessibility on a background image.</p>
 		<p>It is intended as guide for designers and developers to test if their design solution is accessible.</p>
 		<p>Change the text size, colour and position. It will check the dimensions of the textarea against the background image.</p>
+	</div>
+	<div class="row">
+	  <h2 class="compliance-indicators__title">WCAG 2 Compliance Guidance</h2>
+		<p class="compliance-indicators__desc">Based on an assesement on 8 colours shown in the overall palette below it is recommended that text on the background is accessible by the following result.</p>
+		<div class="accessibility-palette--overall" data-accessibility-palette-overall></div>
 	</div>
 	<div class="row row--full">
 		{{> picture/picture src="flower.jpg" id="ImageTest" }}
@@ -21,12 +27,6 @@
 			</div>
 		</div>
 	</div>
-
-	<div class="row">
-	  <h2 class="compliance-indicators__title">WCAG 2 Compliance Guidance</h2>
-		<p class="compliance-indicators__desc">Based on an assesement on 8 colours shown in the overall palette below it is recommended that text on the background is accessible by the following result.</p>
-		<div class="accessibility-palette--overall" data-accessibility-palette-overall></div>
-	</div>
 	<div class="row">
 		<h2 class="title">Image colour palette</h2>
 		<div class="palette__item palette__item--main-color">
@@ -37,6 +37,10 @@
 </article>
 <footer>
 	<div class="row">
-	if you have any suggestions for this service then please <a href="mailto:a11y@brandwood.com">email them to me here</a>
+	<h2 class="title">References &amp; Credits</h2>
+	<p>The formula for colour contrast and ultimately detecting if the colours pass or fail accessibility is taken from <a href="https://snook.ca/technical/colour_contrast/colour.html#fg=33FF33,bg=333333">snook.ca</a> and is based around the W3C recommendation</p>
+	<p><a href="https://www.w3.org/TR/AERT">More information and techniques can be found here at the W3C</a>
+	<p>if you have any suggestions for this service then please <a href="mailto:a11y@brandwood.com">email them to me here</a></p>
 	</div>
 </footer>
+{{> footer }}
