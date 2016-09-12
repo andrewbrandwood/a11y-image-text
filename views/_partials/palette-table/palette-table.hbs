@@ -24,8 +24,8 @@
         <div class="palette__item-color palette-table__col-item palette-table__col-item--color" style="background-color: {{color}};" data-label>Colour<span class="palette__item-color-text">{{color}}</span></div>
       </td>
       {{#each indicator}}
-        <td class="palette-table__col palette-table__aa">
-          <div class="palette-table__col-item compliance-indicators__item{{stateModifier}}">{{state}}</div>
+        <td class="palette-table__col">
+          <div class="palette-table__col-item compliance-indicators__item{{stateModifier}}">{{state}}{{#if perc}}<div class="palette-table__percentage">{{perc}}% Compliant</div>{{/if}}</div>
         </td>
       {{/each}}
     </tr>

@@ -33,19 +33,19 @@
 * _OBJECTS
 * Layout - styles for all layout and or grid system
 * 
-* COLOR-PICKER
-* color-picker styles
-* 
 * COLOR-PALETTE
 * color palette
 * 
-* FILE-UPLOAD
-* file upload styles
+* COLOR-PICKER
+* color-picker styles
 * 
 * COMPLIANCE-INDICATORS
 * compliance-indicators
 * 
 * FONT-SIZE-PICKER
+* 
+* FILE-UPLOAD
+* file upload styles
 * 
 * PALETTE-TABLE
 * palette table styles
@@ -74,11 +74,11 @@
 @import "/Sites/a11y-image-text/_source/styles/_elements/_elements.generic.scss";
 @import "/Sites/a11y-image-text/_source/styles/_elements/_elements.links.scss";
 @import "/Sites/a11y-image-text/_source/styles/_objects/_objects.layout.scss";
-@import "/Sites/a11y-image-text/views/_partials/color-picker/color-picker.scss";
 @import "/Sites/a11y-image-text/views/_partials/color-palette/color-palette.scss";
-@import "/Sites/a11y-image-text/views/_partials/file-upload/file-upload.scss";
+@import "/Sites/a11y-image-text/views/_partials/color-picker/color-picker.scss";
 @import "/Sites/a11y-image-text/views/_partials/compliance-indicators/compliance-indicators.scss";
 @import "/Sites/a11y-image-text/views/_partials/font-size-picker/font-size-picker.scss";
+@import "/Sites/a11y-image-text/views/_partials/file-upload/file-upload.scss";
 @import "/Sites/a11y-image-text/views/_partials/palette-table/palette-table.scss";
 @import "/Sites/a11y-image-text/views/_partials/picture/picture.scss";
 @import "/Sites/a11y-image-text/_source/styles/_trumps/_trumps.helpers.scss";

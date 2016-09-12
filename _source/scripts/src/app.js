@@ -54,26 +54,9 @@
 		}
 
 		function getPercentagePassed(type){
-			var total = validationArr[type + 'Arr'].passed + validationArr[type + 'Arr'].failed;
-			var perc = validationArr[type + 'Arr'].passed / total * 100;
+			var total = validationArr[type].passed + validationArr[type].failed;
+			var perc = validationArr[type].passed / total * 100;
 			return perc;
-		}
-
-		function updateResult(){
-			var text = 'Not very complient';
-
-			var aaPerc = getPercentagePassed('aa');
-			var aaPlusPerc = getPercentagePassed('aaPlus');
-			var aaaPerc = getPercentagePassed('aaa');
-			var aaaPlusPerc = getPercentagePassed('aaaPlus');
-
-
-			var html = 'aa is ' + aaPerc + '% complient <br />';
-			html += 'aa (18pt +) is ' + aaPlusPerc + '% complient <br />';
-			html += 'aaa is ' + aaaPerc + '% complient <br />';
-			html += 'aaa (18pt +) is ' + aaaPlusPerc + '% complient <br />';
-
-			$('[data-compliance-result]').html(html);
 		}
 
 		function updateTextColor(color){
@@ -91,7 +74,6 @@
 			setPallette(bgColor.palette);
 			displayResults(getAcessibility(getTextAreaColor(),bgColor), bgColor);
 
-			//updateResult();
 			updateOverall(bgColor.palette);
 			updateTextColor(color);
 		}
@@ -101,9 +83,12 @@
 			$paletteContainer.html('');
 			var indicator = [];
 			var passedTotal = Object.keys(paletteArr).length;
+
 			for(var item in validationArr){
 				var modifier = ((validationArr[item].passed-1) >= passedTotal) ? 'passed' : 'failed';
-				indicator.push({ type: item, state: modifier, stateModifier: isValidCSS(modifier)});
+				var perc = getPercentagePassed(item);
+				var stateModifier = (perc >= 65 && perc < 100) ? '--nearly' : isValidCSS(modifier);
+				indicator.push({ type: item, state: modifier, perc:perc, stateModifier: stateModifier});
 			}
 			var template = window.a11y.templates['palette-table'];
 			$paletteContainer.append(template({ color: 'transparent', indicator: indicator, headerVisible: true }));
